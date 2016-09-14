@@ -4,13 +4,16 @@ RSpec.describe Cat, type: :model do
   let(:name) { "Madison" }
   let(:breed) { Breed.create!(name: "Exotic") }
   let(:colour) { CoatColour.create!(name: "Blue") }
+  let(:user) { User.new }
 
-  subject(:cat) { Cat.new(name: name, breed: breed, coat_colour: colour) }
+  subject(:cat) { Cat.new(name: name, breed: breed, coat_colour: colour, user: user) }
 
   context "associations" do
     it { is_expected.to belong_to :breed }
 
     it { is_expected.to belong_to :coat_colour }
+
+    it { is_expected.to belong_to :user }
   end
 
   context "validations" do
