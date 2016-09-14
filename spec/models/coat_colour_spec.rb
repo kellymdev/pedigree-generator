@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe Breed, type: :model do
-  context "validations" do
-    let(:name) { "Persian" }
-    subject(:breed) { Breed.new(name: name) }
+RSpec.describe CoatColour, type: :model do
+  let(:name) { "Blue" }
+  subject(:colour) { CoatColour.new(name: name) }
 
-    context "with a valid name" do
+  context "validations" do
+    context "with a valid colour" do
       it { is_expected.to be_valid }
     end
 
     context "with a minimum length name" do
-      let(:name) { "Ma" }
+      let(:name) { "Bl" }
 
       it { is_expected.to be_valid }
     end
