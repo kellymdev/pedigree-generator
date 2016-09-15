@@ -6,16 +6,16 @@
   <%= f.text_field :registration_number %>
 
   <%= f.label :breed %>
-  <%= f.select(:breed_id, options_from_collection_for_select(Breed.all, :id, :name)) %>
+  <%= f.collection_select(:breed_id, Breed.all.order(:name), :id, :name, { include_blank: true }) %>
 
   <%= f.label :coat_colour %>
-  <%= f.select(:coat_colour_id, options_from_collection_for_select(CoatColour.all, :id, :name)) %>
+  <%= f.collection_select(:coat_colour_id, CoatColour.all.order(:name), :id, :name, { include_blank: true }) %>
 
   <%= f.label(:sire) %>
-  <%= f.select(:sire_id, options_from_collection_for_select(current_user.cats.all, :id, :name)) %>
+  <%= f.collection_select(:sire_id, current_user.cats.all.order(:name), :id, :name, { include_blank: true }) %>
 
   <%= f.label(:dam) %>
-  <%= f.select(:dam_id, options_from_collection_for_select(current_user.cats.all, :id, :name)) %>
+  <%= f.collection_select(:dam_id, current_user.cats.all.order(:name), :id, :name, { include_blank: true }) %>
 
   <%= f.submit "Save" %>
 <% end %>

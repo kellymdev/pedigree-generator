@@ -8,15 +8,15 @@
 <%# Sire %>
   <% if @cat.sire %>
     <tr>
-      <td><%= @cat.sire.name %></td>
+      <td class="cat"><%= @cat.sire.name %></td>
 
 <%# Paternal Grandfather %>
       <% if @cat.sire.sire %>
-        <td><%= @cat.sire.sire.name %></td>
+        <td class="cat"><%= @cat.sire.sire.name %></td>
 
 <%# Paternal Great Grandfather %>
         <% if @cat.sire.sire.sire %>
-          <td><%= @cat.sire.sire.sire.name %></td>
+          <td class="cat"><%= @cat.sire.sire.sire.name %></td>
         <% end %>
     </tr>
         <tr>
@@ -25,7 +25,7 @@
 
 <%# Paternal Great Grandmother %>
           <if @cat.sire.sire.dam %>
-            <td><%= @cat.sire.sire.dam.name if @cat.sire.sire.dam %></td>
+            <td class="cat"><%= @cat.sire.sire.dam.name if @cat.sire.sire.dam %></td>
           <% end %>
     </tr>
     <tr>
@@ -33,12 +33,12 @@
 
 <%# Paternal Grandmother %>
       <% if @cat.sire.dam %>
-        <td><%= @cat.sire.dam.name %></td>
+        <td class="cat"><%= @cat.sire.dam.name %></td>
 
 
 <%# Paternal Great Grandfather %>
         <% if @cat.sire.dam.sire %>
-          <td><%= @cat.sire.dam.sire.name %></td>
+          <td class="cat"><%= @cat.sire.dam.sire.name %></td>
         <% end %>
     </tr>
         <tr>
@@ -47,7 +47,7 @@
 
 <%# Paternal Great Grandmother %>
         <% if @cat.sire.dam.dam %>
-          <td><%= @cat.sire.dam.dam.name %></td>
+          <td class="cat"><%= @cat.sire.dam.dam.name %></td>
         <% end %>
       <% end %>
     </tr>
@@ -56,15 +56,15 @@
 <%# Dam %>
   <% if @cat.dam %>
     <tr>
-      <td><%= @cat.dam.name %></td>
+      <td class="cat"><%= @cat.dam.name %></td>
 
 <%# Maternal Grandfather %>
       <% if @cat.dam.sire %>
-        <td><%= @cat.dam.sire.name %></td>
+        <td class="cat"><%= @cat.dam.sire.name %></td>
 
 <%# Maternal Great Grandfather %>
         <% if @cat.dam.sire.sire %>
-          <td><%= @cat.dam.sire.sire.name %></td>
+          <td class="cat"><%= @cat.dam.sire.sire.name %></td>
         <% end %>
     </tr>
       <tr>
@@ -73,7 +73,7 @@
 
 <%# Maternal Great Grandmother %>
           <if @cat.dam.sire.dam %>
-            <td><%= @cat.dam.sire.dam.name if @cat.dam.sire.dam %></td>
+            <td class="cat"><%= @cat.dam.sire.dam.name if @cat.dam.sire.dam %></td>
           <% end %>
     </tr>
     <tr>
@@ -81,11 +81,11 @@
 
 <%# Maternal Grandmother %>
       <% if @cat.dam.dam %>
-        <td><%= @cat.dam.dam.name %></td>
+        <td class="cat"><%= @cat.dam.dam.name %></td>
 
 <%# Maternal Great Grandfather %>
         <% if @cat.dam.dam.sire %>
-          <td><%= @cat.dam.dam.sire.name %></td>
+          <td class="cat"><%= @cat.dam.dam.sire.name %></td>
         <% end %>
     </tr>
         <tr>
@@ -94,7 +94,7 @@
 
 <%# Maternal Great Grandmother %>
         <% if @cat.dam.dam.dam %>
-          <td><%= @cat.dam.dam.dam.name %></td>
+          <td class="cat"><%= @cat.dam.dam.dam.name %></td>
         <% end %>
       <% end %>
     </tr>
