@@ -6,6 +6,7 @@ class Cat < ApplicationRecord
   belongs_to :user
   belongs_to :sire, class_name: "Cat", optional: true
   belongs_to :dam, class_name: "Cat", optional: true
+  belongs_to :gender
 
   validates :name, presence: true, length: { minimum: 2 }
 end
