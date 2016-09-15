@@ -3,12 +3,26 @@
 <p><%= @cat.coat_colour.name %> <%= @cat.breed.name %></p>
 
 <% if @cat.sire %>
-  <p>Sire: <%= @cat.sire.name %></p>
+  <p>Sire: <%= link_to(@cat.sire.name, cat_path(@cat.sire)) %></p>
 <% end %>
 
 <% if @cat.dam %>
-  <p>Dam: <%= @cat.dam.name %></p>
+  <p>Dam: <%= link_to(@cat.dam.name, cat_path(@cat.dam)) %></p>
 <% end %>
+
+<% if !@cat.kittens.empty? || !@cat.offspring.empty? %>
+  <h3>Progeny:</h3>
+<% end %>
+
+<ul>
+  <% @cat.kittens.each do |kitten| %>
+    <li><%= link_to(kitten.name, cat_path(kitten)) %></li>
+  <% end %>
+
+  <% @cat.offspring.each do |kitten| %>
+    <li><%= link_to(kitten.name, cat_path(kitten)) %></li>
+  <% end %>
+</ul>
 
 <%= link_to("Edit cat", edit_cat_path(@cat)) %>
 <%= link_to("Back to cats", cats_path) %>
