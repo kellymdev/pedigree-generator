@@ -1,9 +1,9 @@
 <h2>Cats</h2>
 
-<p><%= link_to "Add Cat", new_cat_path %></p>
+<p><%= link_to "Add Cat", new_cat_path, class: "button" %></p>
 
 <ul>
   <% @cats.each do |cat| %>
-    <li><%= link_to(cat.name, cat) %></li>
+    <li><%= link_to(cat.name, cat, class: "cat-link") %></li>
   <% end %>
 </ul>

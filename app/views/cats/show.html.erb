@@ -29,14 +29,16 @@
 <% end %>
 
 <ul>
-  <% @cat.kittens.each do |kitten| %>
-    <li><%= link_to(kitten.name, cat_path(kitten)) %></li>
-  <% end %>
-
-  <% @cat.offspring.each do |kitten| %>
-    <li><%= link_to(kitten.name, cat_path(kitten)) %></li>
+  <% if @cat.is_sire? %>
+    <% @cat.kittens.each do |kitten| %>
+      <li><%= link_to(kitten.name, cat_path(kitten), class: "cat-link") %></li>
+    <% end %>
+  <% else %>
+    <% @cat.offspring.each do |kitten| %>
+      <li><%= link_to(kitten.name, cat_path(kitten), class: "cat-link") %></li>
+    <% end %>
   <% end %>
 </ul>
 
-<%= link_to("Edit cat", edit_cat_path(@cat)) %>
-<%= link_to("Back to cats", cats_path) %>
+<%= link_to("Edit cat", edit_cat_path(@cat), class: "button") %>
+<%= link_to("Back to cats", cats_path, class: "button") %>

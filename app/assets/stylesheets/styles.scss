@@ -1,0 +1,72 @@
+// Colours
+$dark-blue: #2B3F57;
+$lilac: #D7DBE7;
+$cream: #F2F2F2;
+$pink: #D1B3B1;
+$grey: #B3B7B8;
+
+// Fonts
+$title-font: 'Baloo Tamma', cursive;
+$main-font: 'Open Sans', sans-serif;
+
+// General Styles
+body {
+  background-color: $lilac;
+  color: $dark-blue;
+  font-family: $main-font;
+
+  h1, h2, h3 {
+    font-family: $title-font;
+  }
+
+  a {
+    color: $dark-blue;
+  }
+}
+
+// Button/Link Styles
+.button {
+  text-decoration: none;
+  padding: 5px 8px;
+  color: $dark-blue;
+  background-color: $cream;
+  border: 1px solid $grey;
+  border-radius: 3px;
+}
+
+.cat-link {
+  text-decoration: none;
+}
+
+// New/Edit Cat Form Styles
+form {
+  width: 300px;
+
+  input[type="text"],
+  select {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+// Pedigree Styles
+.pedigree {
+  border: 1px solid black;
+
+  td.cat {
+    border: 1px solid black;
+
+    a {
+      color: $dark-blue;
+      text-decoration: none;
+    }
+  }
+
+  td.sire {
+    background-color: $grey;
+  }
+
+  td.dam {
+    background-color: $pink;
+  }
+}
