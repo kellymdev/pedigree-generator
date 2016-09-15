@@ -9,4 +9,12 @@ class Cat < ApplicationRecord
   belongs_to :gender
 
   validates :name, presence: true, length: { minimum: 2 }
+
+  def is_sire?
+    Gender.male.include?(gender)
+  end
+
+  def is_dam?
+    Gender.female.include?(gender)
+  end
 end
