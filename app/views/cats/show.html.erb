@@ -10,6 +10,8 @@
   <p>Colour: <%= @cat.coat_colour.name %></p>
 <% end %>
 
+<h3>Parents</h3>
+
 <% if @cat.sire %>
   <p>Sire: <%= link_to(@cat.sire.name, cat_path(@cat.sire)) %> (<%= @cat.sire.coat_colour.name if @cat.sire.coat_colour %> <%= @cat.sire.breed.name if @cat.sire.breed %>)</p>
 <% end %>
@@ -19,6 +21,7 @@
 <% end %>
 
 <h3>Pedigree</h3>
+
 <%= render partial: "pedigree" %>
 
 <% if !@cat.kittens.empty? || !@cat.offspring.empty? %>

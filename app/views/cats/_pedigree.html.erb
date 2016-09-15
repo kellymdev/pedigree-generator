@@ -8,15 +8,15 @@
 <%# Sire %>
   <% if @cat.sire %>
     <tr>
-      <td class="cat"><%= @cat.sire.name %></td>
+      <td class="cat"><%= link_to @cat.sire.name, @cat.sire %></td>
 
 <%# Paternal Grandfather %>
       <% if @cat.sire.sire %>
-        <td class="cat"><%= @cat.sire.sire.name %></td>
+        <td class="cat"><%= link_to @cat.sire.sire.name, @cat.sire.sire %></td>
 
 <%# Paternal Great Grandfather %>
         <% if @cat.sire.sire.sire %>
-          <td class="cat"><%= @cat.sire.sire.sire.name %></td>
+          <td class="cat"><%= link_to @cat.sire.sire.sire.name, @cat.sire.sire.sire %></td>
         <% end %>
     </tr>
         <tr>
@@ -25,7 +25,7 @@
 
 <%# Paternal Great Grandmother %>
           <if @cat.sire.sire.dam %>
-            <td class="cat"><%= @cat.sire.sire.dam.name if @cat.sire.sire.dam %></td>
+            <td class="cat"><%= link_to(@cat.sire.sire.dam.name, @cat.sire.sire.dam) if @cat.sire.sire.dam %></td>
           <% end %>
     </tr>
     <tr>
@@ -33,12 +33,12 @@
 
 <%# Paternal Grandmother %>
       <% if @cat.sire.dam %>
-        <td class="cat"><%= @cat.sire.dam.name %></td>
+        <td class="cat"><%= link_to @cat.sire.dam.name, @cat.sire.dam %></td>
 
 
 <%# Paternal Great Grandfather %>
         <% if @cat.sire.dam.sire %>
-          <td class="cat"><%= @cat.sire.dam.sire.name %></td>
+          <td class="cat"><%= link_to @cat.sire.dam.sire.name, @cat.sire.dam.sire %></td>
         <% end %>
     </tr>
         <tr>
@@ -47,7 +47,7 @@
 
 <%# Paternal Great Grandmother %>
         <% if @cat.sire.dam.dam %>
-          <td class="cat"><%= @cat.sire.dam.dam.name %></td>
+          <td class="cat"><%= link_to @cat.sire.dam.dam.name, @cat.sire.dam.dam %></td>
         <% end %>
       <% end %>
     </tr>
@@ -56,15 +56,15 @@
 <%# Dam %>
   <% if @cat.dam %>
     <tr>
-      <td class="cat"><%= @cat.dam.name %></td>
+      <td class="cat"><%= link_to @cat.dam.name, @cat.dam %></td>
 
 <%# Maternal Grandfather %>
       <% if @cat.dam.sire %>
-        <td class="cat"><%= @cat.dam.sire.name %></td>
+        <td class="cat"><%= link_to @cat.dam.sire.name, @cat.dam.sire %></td>
 
 <%# Maternal Great Grandfather %>
         <% if @cat.dam.sire.sire %>
-          <td class="cat"><%= @cat.dam.sire.sire.name %></td>
+          <td class="cat"><%= link_to @cat.dam.sire.sire.name, @cat.dam.sire.sire %></td>
         <% end %>
     </tr>
       <tr>
@@ -73,7 +73,7 @@
 
 <%# Maternal Great Grandmother %>
           <if @cat.dam.sire.dam %>
-            <td class="cat"><%= @cat.dam.sire.dam.name if @cat.dam.sire.dam %></td>
+            <td class="cat"><%= link_to(@cat.dam.sire.dam.name, @cat.dam.sire.dam) if @cat.dam.sire.dam %></td>
           <% end %>
     </tr>
     <tr>
@@ -81,11 +81,11 @@
 
 <%# Maternal Grandmother %>
       <% if @cat.dam.dam %>
-        <td class="cat"><%= @cat.dam.dam.name %></td>
+        <td class="cat"><%= link_to @cat.dam.dam.name, @cat.dam.dam %></td>
 
 <%# Maternal Great Grandfather %>
         <% if @cat.dam.dam.sire %>
-          <td class="cat"><%= @cat.dam.dam.sire.name %></td>
+          <td class="cat"><%= link_to @cat.dam.dam.sire.name, @cat.dam.dam.sire %></td>
         <% end %>
     </tr>
         <tr>
@@ -94,7 +94,7 @@
 
 <%# Maternal Great Grandmother %>
         <% if @cat.dam.dam.dam %>
-          <td class="cat"><%= @cat.dam.dam.dam.name %></td>
+          <td class="cat"><%= link_to @cat.dam.dam.dam.name, @cat.dam.dam.dam %></td>
         <% end %>
       <% end %>
     </tr>
