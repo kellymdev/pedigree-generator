@@ -25,10 +25,9 @@ class CatsController < ApplicationController
 
   def update
     find_cat
+    @cat.update_attributes!(cat_params)
 
-    if @cat.save!
-      redirect_to @cat
-    end
+    redirect_to @cat
   end
 
   private
@@ -38,6 +37,6 @@ class CatsController < ApplicationController
   end
 
   def cat_params
-    params.require(:cat).permit(:name, :registration_number, :breed_id, :coat_colour_id)
+    params.require(:cat).permit(:name, :registration_number, :breed_id, :coat_colour_id, :sire_id)
   end
 end

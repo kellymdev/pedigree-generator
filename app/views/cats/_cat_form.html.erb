@@ -11,5 +11,8 @@
   <%= f.label :coat_colour %>
   <%= f.select(:coat_colour_id, options_from_collection_for_select(CoatColour.all, :id, :name)) %>
 
+  <%= f.label(:sire) %>
+  <%= f.select(:sire_id, options_from_collection_for_select(current_user.cats.all, :id, :name)) %>
+
   <%= f.submit "Save" %>
 <% end %>
