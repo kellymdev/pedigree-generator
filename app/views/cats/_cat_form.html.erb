@@ -14,5 +14,8 @@
   <%= f.label(:sire) %>
   <%= f.select(:sire_id, options_from_collection_for_select(current_user.cats.all, :id, :name)) %>
 
+  <%= f.label(:dam) %>
+  <%= f.select(:dam_id, options_from_collection_for_select(current_user.cats.all, :id, :name)) %>
+
   <%= f.submit "Save" %>
 <% end %>
