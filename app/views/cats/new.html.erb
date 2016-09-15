@@ -1,0 +1,15 @@
+<%= form_for @cat do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :registration_number %>
+  <%= f.text_field :registration_number %>
+
+  <%= f.label :breed %>
+  <%= f.select(:breed_id, options_from_collection_for_select(Breed.all, :id, :name)) %>
+
+  <%= f.label :coat_colour %>
+  <%= f.select(:coat_colour_id, options_from_collection_for_select(CoatColour.all, :id, :name)) %>
+
+  <%= f.submit "Create" %>
+<% end %>
