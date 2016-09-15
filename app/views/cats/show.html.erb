@@ -1,13 +1,20 @@
 <h2><%= @cat.name %></h2>
 <p><%= @cat.registration_number %></p>
-<p><%= @cat.coat_colour.name if @cat.coat_colour %> <%= @cat.breed.name if @cat.breed %></p>
+
+<% if @cat.breed %>
+  <p>Breed: <%= @cat.breed.name %></p>
+<% end %>
+
+<% if @cat.coat_colour %>
+  <p>Colour: <%= @cat.coat_colour.name %></p>
+<% end %>
 
 <% if @cat.sire %>
-  <p>Sire: <%= link_to(@cat.sire.name, cat_path(@cat.sire)) %></p>
+  <p>Sire: <%= link_to(@cat.sire.name, cat_path(@cat.sire)) %> (<%= @cat.sire.coat_colour.name if @cat.sire.coat_colour %> <%= @cat.sire.breed.name if @cat.sire.breed %>)</p>
 <% end %>
 
 <% if @cat.dam %>
-  <p>Dam: <%= link_to(@cat.dam.name, cat_path(@cat.dam)) %></p>
+  <p>Dam: <%= link_to(@cat.dam.name, cat_path(@cat.dam)) %> (<%= @cat.dam.coat_colour.name if @cat.dam.coat_colour %> <%= @cat.dam.breed.name if @cat.dam.breed %>)</p>
 <% end %>
 
 <h3>Pedigree</h3>

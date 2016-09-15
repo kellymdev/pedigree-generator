@@ -73,7 +73,7 @@
 
 <%# Maternal Great Grandmother %>
           <if @cat.dam.sire.dam %>
-            <td><%= @cat.dam.sire.dam.name %></td>
+            <td><%= @cat.dam.sire.dam.name if @cat.dam.sire.dam %></td>
           <% end %>
     </tr>
     <tr>
