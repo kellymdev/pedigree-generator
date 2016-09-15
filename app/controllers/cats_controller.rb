@@ -14,9 +14,13 @@ class CatsController < ApplicationController
   end
 
   def create
-    @cat = current_user.cats.create!(cat_params)
+    @cat = current_user.cats.new(cat_params)
 
-    redirect_to @cat
+    if @cat.save
+      redirect_to @cat
+    else
+      render :new
+    end
   end
 
   def edit
