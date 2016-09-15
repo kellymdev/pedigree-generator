@@ -1,6 +1,10 @@
 class CatsController < ApplicationController
   before_action :authenticate_user!
 
+  def show
+    @cat = current_user.cats.find(params[:id])
+  end
+
   def index
     @cats = current_user.cats.order(:name)
   end
@@ -11,7 +15,7 @@ class CatsController < ApplicationController
 
   def create
     puts params
-    @cat = Cat.create!(cat_params.merge(user: current_user))
+    @cat = current_user.cats.create!(cat_params)
 
     redirect_to @cat
   end

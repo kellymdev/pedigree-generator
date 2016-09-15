@@ -1,0 +1,5 @@
+<h2><%= @cat.name %></h2>
+<p><%= @cat.registration_number %></p>
+<p><%= @cat.coat_colour.name %> <%= @cat.breed.name %></p>
+
+<%= link_to("Back to cats", cats_path) %>
