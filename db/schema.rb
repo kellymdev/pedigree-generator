@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915213243) do
+ActiveRecord::Schema.define(version: 20160915233614) do
 
   create_table "breeds", force: :cascade do |t|
     t.string   "name"
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(version: 20160915213243) do
 
   create_table "genders", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "titles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "short_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
