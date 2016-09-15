@@ -1,8 +1,8 @@
 class CatsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_cat, only: [:show, :edit, :update]
 
   def show
-    find_cat
   end
 
   def index
@@ -20,11 +20,9 @@ class CatsController < ApplicationController
   end
 
   def edit
-    find_cat
   end
 
   def update
-    find_cat
     @cat.update_attributes!(cat_params)
 
     redirect_to @cat

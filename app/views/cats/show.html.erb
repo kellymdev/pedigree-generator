@@ -1,6 +1,6 @@
 <h2><%= @cat.name %></h2>
 <p><%= @cat.registration_number %></p>
-<p><%= @cat.coat_colour.name %> <%= @cat.breed.name %></p>
+<p><%= @cat.coat_colour.name if @cat.coat_colour %> <%= @cat.breed.name if @cat.breed %></p>
 
 <% if @cat.sire %>
   <p>Sire: <%= link_to(@cat.sire.name, cat_path(@cat.sire)) %></p>
@@ -10,8 +10,11 @@
   <p>Dam: <%= link_to(@cat.dam.name, cat_path(@cat.dam)) %></p>
 <% end %>
 
+<h3>Pedigree</h3>
+<%= render partial: "pedigree" %>
+
 <% if !@cat.kittens.empty? || !@cat.offspring.empty? %>
-  <h3>Progeny:</h3>
+  <h3>Progeny</h3>
 <% end %>
 
 <ul>
