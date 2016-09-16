@@ -24,9 +24,10 @@
           <td></td>
 
 <%# Paternal Great Grandmother %>
-          <if @cat.sire.sire.dam %>
-            <td class="cat dam"><%= link_to(@cat.sire.sire.dam.short_name, @cat.sire.sire.dam) if @cat.sire.sire.dam %></td>
+          <% if @cat.sire.sire.dam %>
+            <td class="cat dam"><%= link_to(@cat.sire.sire.dam.short_name, @cat.sire.sire.dam) %></td>
           <% end %>
+        <% end %>
     </tr>
     <tr>
       <td></td>
@@ -72,9 +73,10 @@
         <td></td>
 
 <%# Maternal Great Grandmother %>
-          <if @cat.dam.sire.dam %>
-            <td class="cat dam"><%= link_to(@cat.dam.sire.dam.short_name, @cat.dam.sire.dam) if @cat.dam.sire.dam %></td>
+          <% if @cat.dam.sire.dam %>
+            <td class="cat dam"><%= link_to(@cat.dam.sire.dam.short_name, @cat.dam.sire.dam) %></td>
           <% end %>
+        <% end %>
     </tr>
     <tr>
       <td></td>

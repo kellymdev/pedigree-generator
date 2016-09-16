@@ -7,6 +7,9 @@
 
   <%= f.label :registration_number %>
   <%= f.text_field :registration_number %>
+  
+  <%= f.label :gender %>
+  <%= f.collection_select(:gender_id, Gender.all.order(:name), :id, :name) %>
 
   <%= f.label :breed %>
   <%= f.collection_select(:breed_id, Breed.all.order(:name), :id, :name, { include_blank: true }) %>

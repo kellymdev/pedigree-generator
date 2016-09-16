@@ -2,8 +2,10 @@
   <%= @cat.full_name %>
 </h2>
 
+<% if @cat.registration_number.present? %>
+  <p>Registration number: <%= @cat.registration_number %></p>
+<% end %>
 
-<p><%= @cat.registration_number %></p>
 <p>Gender: <%= @cat.gender.name %></p>
 
 <% if @cat.breed %>

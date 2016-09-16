@@ -2,6 +2,7 @@ CoatColour.destroy_all
 Breed.destroy_all
 Cat.destroy_all
 Gender.destroy_all
+Title.destroy_all
 
 # Genders
 female = Gender.create!(name: "Female")
