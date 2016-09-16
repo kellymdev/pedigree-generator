@@ -2,7 +2,7 @@
 
 <p><%= link_to "Add Cat", new_cat_path, class: "button" %></p>
 
-<ul>
+<ul class="cat-list">
   <% @cats.each do |cat| %>
     <li><%= link_to(cat.name, cat, class: "cat-link") %></li>
   <% end %>
