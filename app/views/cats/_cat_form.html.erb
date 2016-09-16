@@ -18,10 +18,10 @@
   <%= f.collection_select(:coat_colour_id, CoatColour.all.order(:name), :id, :name, { include_blank: true }) %>
 
   <%= f.label(:sire) %>
-  <%= f.collection_select(:sire_id, current_user.cats.all.order(:name).select { |cat| cat.is_sire? }, :id, :name, { include_blank: true }) %>
+  <%= f.collection_select(:sire_id, current_user.cats.all.order(:name).select { |cat| cat.sire? }, :id, :name, { include_blank: true }) %>
 
   <%= f.label(:dam) %>
-  <%= f.collection_select(:dam_id, current_user.cats.all.order(:name).select { |cat| cat.is_dam? }, :id, :name, { include_blank: true }) %>
+  <%= f.collection_select(:dam_id, current_user.cats.all.order(:name).select { |cat| cat.dam? }, :id, :name, { include_blank: true }) %>
 
   <%= f.submit "Save", class: "button" %>
 <% end %>

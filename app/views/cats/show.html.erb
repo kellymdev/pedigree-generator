@@ -45,7 +45,7 @@
 <% end %>
 
 <ul>
-  <% if @cat.is_sire? %>
+  <% if @cat.sire? %>
     <% @cat.kittens.each do |kitten| %>
       <li><%= link_to(kitten.name, cat_path(kitten), class: "cat-link") %></li>
     <% end %>

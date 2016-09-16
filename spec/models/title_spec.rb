@@ -1,40 +1,40 @@
 require 'rails_helper'
 
-RSpec.describe Title, type: :model  do
-  let(:name) { "Champion" }
-  let(:short_name) { "Ch" }
+RSpec.describe Title, type: :model do
+  let(:name) { 'Champion' }
+  let(:short_name) { 'Ch' }
 
   subject(:title) { Title.new(name: name, short_name: short_name) }
 
-  context "associations" do
+  context 'associations' do
     it { is_expected.to have_many :cats }
   end
 
-  context "validations" do
-    context "with a valid name and short name" do
+  context 'validations' do
+    context 'with a valid name and short name' do
       it { is_expected.to be_valid }
     end
 
-    context "with a blank name" do
-      let(:name) { "" }
+    context 'with a blank name' do
+      let(:name) { '' }
 
       it { is_expected.not_to be_valid }
     end
 
-    context "with a name that is too short" do
-      let(:name) { "C" }
+    context 'with a name that is too short' do
+      let(:name) { 'C' }
 
       it { is_expected.not_to be_valid }
     end
 
-    context "with a name that is the minimum length" do
-      let(:name) { "Ch" }
+    context 'with a name that is the minimum length' do
+      let(:name) { 'Ch' }
 
       it { is_expected.to be_valid }
     end
 
-    context "with a blank short name" do
-      let(:short_name) { "" }
+    context 'with a blank short name' do
+      let(:short_name) { '' }
 
       it { is_expected.not_to be_valid }
     end
