@@ -2,6 +2,9 @@
   <%= f.label :name %>
   <%= f.text_field :name %>
 
+  <%= f.label :title %>
+  <%= f.collection_select(:title_id, Title.all.order(:name), :id, :name, { include_blank: true }) %>
+
   <%= f.label :registration_number %>
   <%= f.text_field :registration_number %>
 

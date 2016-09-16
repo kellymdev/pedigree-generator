@@ -5,9 +5,10 @@ RSpec.describe Cat, type: :model do
   let(:breed) { Breed.create!(name: "Exotic") }
   let(:colour) { CoatColour.create!(name: "Blue") }
   let(:gender) { Gender.create!(name: "Neuter") }
+  let(:title) { Title.create!(name: "Silver Double Grand Premier", short_name: "SDGP") }
   let(:user) { User.new }
 
-  subject(:cat) { Cat.new(name: name, breed: breed, coat_colour: colour, user: user, gender: gender) }
+  subject(:cat) { Cat.new(name: name, breed: breed, coat_colour: colour, user: user, gender: gender, title: title) }
 
   context "associations" do
     it { is_expected.to have_many :kittens }
@@ -25,6 +26,8 @@ RSpec.describe Cat, type: :model do
     it { is_expected.to belong_to :dam }
 
     it { is_expected.to belong_to :gender }
+
+    it { is_expected.to belong_to :title }
   end
 
   context "validations" do
@@ -48,6 +51,66 @@ RSpec.describe Cat, type: :model do
       let(:name) { "M" }
 
       it { is_expected.not_to be_valid }
+    end
+  end
+
+  describe "is_sire?" do
+    subject(:is_sire) { cat.is_sire? }
+
+    context "when the gender is male" do
+      let(:gender) { Gender.create!(name: "Male") }
+
+      it { is_expected.to eq true }
+    end
+
+    context "when the gender is female" do
+      let(:gender) { Gender.create!(name: "Female") }
+
+      it { is_expected.to eq false }
+    end
+  end
+
+  describe "is_dam?" do
+    subject(:is_dam) { cat.is_dam? }
+
+    context "when the gender is female" do
+      let(:gender) { Gender.create!(name: "Female") }
+
+      it { is_expected.to eq true }
+    end
+
+    context "when the gender is male" do
+      let(:gender) { Gender.create!(name: "Male") }
+
+      it { is_expected.to eq false }
+    end
+  end
+
+  describe "full_name" do
+    subject(:full_name) { cat.full_name }
+
+    context "when the cat has a title" do
+      it { is_expected.to eq "Silver Double Grand Premier Madison" }
+    end
+
+    context "when the cat doesn't have a title" do
+      let(:title) { }
+
+      it { is_expected.to eq "Madison" }
+    end
+  end
+
+  describe "short_name" do
+    subject(:short_name) { cat.short_name }
+
+    context "when the cat has a title" do
+      it { is_expected.to eq "SDGP Madison" }
+    end
+
+    context "when the cat doesn't have a title" do
+      let(:title) { }
+
+      it { is_expected.to eq "Madison" }
     end
   end
 end

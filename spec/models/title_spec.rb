@@ -6,6 +6,10 @@ RSpec.describe Title, type: :model  do
 
   subject(:title) { Title.new(name: name, short_name: short_name) }
 
+  context "associations" do
+    it { is_expected.to have_many :cats }
+  end
+
   context "validations" do
     context "with a valid name and short name" do
       it { is_expected.to be_valid }
