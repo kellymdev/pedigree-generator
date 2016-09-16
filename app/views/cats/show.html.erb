@@ -14,6 +14,8 @@
   <p>Colour: <%= @cat.coat_colour.name %></p>
 <% end %>
 
+<%= image_tag(@cat.image_url, class: "cat-image") if @cat.image_url.present?  %>
+
 <h3>Parents</h3>
 
 <% if @cat.sire %>

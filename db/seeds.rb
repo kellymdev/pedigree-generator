@@ -107,4 +107,4 @@ made = Cat.create!(name: "Ozki All Made Up (Imp Aust)", breed: persian, coat_col
 bluebell = Cat.create!(name: "Rosimorn Yusta Bluebell", breed: persian, coat_colour: blue, user: user, sire: lav, dam: smudge, gender: female, title: ch)
 nostradamus = Cat.create!(name: "Rosimorn Nostradamus", breed: persian, coat_colour: blue_tabby, user: user, sire: made, dam: bluebell, gender: male, title: bdgc)
 lulu = Cat.create!(name: "Rosimorn Lulubelle (Gen 1)", breed: exotic, coat_colour: chocolate, user: user, sire: ustinov, dam: apple, gender: female)
-phoebe = Cat.create!(name: "Rosimorn Fancy That (Gen 2)", breed: exotic, coat_colour: lilac, user: user, sire: nostradamus, dam: lulu, gender: spay, title: gc)
+phoebe = Cat.create!(name: "Rosimorn Fancy That (Gen 2)", breed: exotic, coat_colour: lilac, user: user, sire: nostradamus, dam: lulu, gender: spay, title: gc, image_url: "Phoebe-0171.jpg")
